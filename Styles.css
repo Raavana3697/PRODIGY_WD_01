@@ -1,0 +1,175 @@
+/* Styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding: 1rem 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.brand-logo:hover {
+    color: #ffd700;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #575757;
+    color: #ffd700;
+}
+
+header {
+    background: url('images/tech-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 10rem 2rem;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.header-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.header-content:hover {
+    transform: scale(1.05);
+}
+
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s;
+    position: relative;
+}
+
+#about {
+    background: url('images/computer-hardware.jpg') no-repeat center center/cover;
+    background-blend-mode: multiply;
+}
+
+#services {
+    background: url('images/server-room.jpg') no-repeat center center/cover;
+    background-blend-mode: multiply;
+}
+
+#contact {
+    background: url('images/contact-us.jpg') no-repeat center center/cover;
+    background-blend-mode: multiply;
+}
+
+section h2, section p {
+    position: relative;
+    z-index: 1;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+.services-images {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.services-images img {
+    max-width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .services-images {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
